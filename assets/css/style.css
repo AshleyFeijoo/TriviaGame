@@ -17,3 +17,7 @@ section.row.h-80 {
 h4 {
     padding: 15px;
 }
+
+#questionDiv{
+    display:none !important;
+}
