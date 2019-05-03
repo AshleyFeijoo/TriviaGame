@@ -21,3 +21,9 @@ h4 {
 #questionDiv{
     display:none !important;
 }
+
+#timeRemaining{
+    background-color:orange;
+    border-radius: 15px;
+    padding:.5em;
+}
