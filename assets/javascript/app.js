@@ -1,5 +1,5 @@
 // ============================+++++++++++++===========================//
-
+  //variables
 // ============================+++++++++++++===========================//
 var triviaQuestions = [{
   question: "What is the fastest land animal?",
@@ -30,32 +30,48 @@ var triviaQuestions = [{
 
 var correct = 0;
 var incorrect = 0;
-var count = 10;
+var count = 60;
 var intervalID;
 var clockRunning = false;
 var checkedValues=[];
 var userAns = [];
 var correctDiv;
 var checked= false;
+var reset =false;
 
 $(document).ready(function() {
  
+// ============================+++++++++++++===========================//
+  //buttons and hide/show
+// ============================+++++++++++++===========================//
+  //
   $("#start_button").show();
-  $("#done_button").show();
+  $("#done_button").hide();
 
   $("#start_button").on("click", startGame);
   
   $("#done_button ").on("click", function() {
     checked =true;
   });
+  $("#timeRemaining").css("visibility", "hidden");
+  $("#reset_button ").on("click", function() {
+      resetGame();
+  });
 
-
-
-  function reset(){
-    $("#start_button").show();
-  $("#start_button").on("click", startGame);
-  $("#question-div").empty();
+  function resetGame(){
+    clearInterval(timer);
+    $("#question-div").empty();
+    clearInterval (intervalID);
+    $("#timeRemaining").css("visibility", "hidden");
+    $("#start_button").css("visibility", "visible");
+    $("#done_button").css("visibility", "hidden");
+    startGame();
   }
+
+// ============================+++++++++++++===========================//
+  //reset
+// ============================+++++++++++++===========================//
+
 
   function timer() {
     count--;
@@ -68,6 +84,7 @@ $(document).ready(function() {
       $("#question-div").empty();
       $("#done_button").css("visibility", "hidden");
       $("#timeRemaining").css("visibility", "hidden");
+
     };
   };
 
@@ -128,10 +145,11 @@ $(document).ready(function() {
     var newDiv2 = $('<h1>');
     newDiv.text('Answers correct: ');
     newDiv.append('<span>' + correct + '</span>');
-    newDiv.addClass('h1, bg-dark');
+    newDiv.addClass('h1,  rounded bg-dark p-3');
     newDiv2.text('Answers incorrect: ');
+    newDiv2.addClass('h1,  rounded bg-dark p-3');
     newDiv2.append('<span>' + incorrect + '</span>');
-    $(".correct").append(newDiv); 
+    $(".correct").html(newDiv); 
     $(".incorrect").append(newDiv2); 
   }
 
@@ -144,11 +162,12 @@ function finished(){
 } 
   
   function startGame() {
+    $("#timeRemaining").css("visibility", "visible");
     $("#start_button").css("visibility", "hidden");
     clearInterval (intervalID);
     intervalID = setInterval(timer, 1000); 
     timer();
-
+    $("#done_button").show();
 
     for (var i = 0; i < triviaQuestions.length; i++) {
     $("#question-div").append("<h2 class='h2 mb-2 mt-4'>" + triviaQuestions[i].question + "</h2>");

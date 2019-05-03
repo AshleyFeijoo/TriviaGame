@@ -20,18 +20,24 @@
 
 </head>
 <body>
-    <div class="mt-4 mb-4 container d-flex flex-column rounded justify-contents-center text-center">
+    <div class="mt-4 mb-4 container d-flex flex-column justify-contents-center text-center">
         <div class="header">
         <h1 class= "h1 p-3 ">Totally Trivia</h1>
     </div>
-
+        <div id="timeRemaining" class="p-3 big align-self-center h2 d-inline-flex m-0"></div>
+        <div id = "guesse" class="position-relative mx-auto text-center">
+                <div class="correct"></div>
+                <div class="incorrect"></div>
+        </div>
         <button id="start_button" class="btn btn-light d-inline-block w-20 align-self-center">start game</button>
-        <div id="timeRemaining" class="big align-self-center h2 d-inline-flex m-0"></div>
-        <div id="question-div" class = "p-2"></div>
-        <div class="correct"></div>
-        <div class="incorrect"></div>
 
-        <button id="done_button" class="btn btn-light d-inline-block w-20 align-self-center">Done!</button>
+        <div id="question-div" class = "p-2"></div>
+
+
+        <div class="buttonGroup  mt-5 ">
+        <button id="done_button" class="btn btn-light align-self-center mr-3 ">Submit</button>
+        <button id="reset_button" class="btn btn-light d-inline ">Reset</button>
+    </div>
     </div>
 
 

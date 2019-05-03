@@ -27,3 +27,21 @@ h4 {
     border-radius: 15px;
     padding:.5em;
 }
+
+.buttonGroup{
+    width:100%
+ 
+}
+
+#start_button{
+    width: 10em!important;
+    font-size: 2em;
+    border-radius: 25px;
+    padding:1em;
+
+}
+
+.container{
+    border-radius:50px !important;
+    padding: 2em;
+}
